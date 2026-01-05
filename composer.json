@@ -1,0 +1,42 @@
+{
+	"name": "lightningspirit/wp-redirects",
+	"description": "Lightweight redirect manager (301 / 302)",
+	"type": "wordpress-plugin",
+	"keywords": [
+		"wordpress",
+		"redirects"
+	],
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Vitor Carvalho",
+			"email": "lightningspirit@gmail.com",
+			"homepage": "https://github.com/lightningspirit"
+		}
+	],
+	"require": {
+		"php": ">=7.4",
+		"composer/installers": "^2.0"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/lightningspirit/wp-redirects.git"
+		}
+	],
+	"require-dev": {
+		"phpcsstandards/phpcsutils": "^1.2"
+	},
+	"scripts": {
+		"wp-info:generate": "php tools/wp-info.php generate --main=./redirects.php --readme=./readme.txt --out=./wp-info.json",
+		"wp-info:bump": "php tools/wp-info.php bump --version=${VERSION} --main=./redirects.php --readme=./readme.txt --readmemd=./README.md --out=./wp-info.json"
+	},
+	"extra": {
+		"installer-name": "wp-redirects"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
+}
