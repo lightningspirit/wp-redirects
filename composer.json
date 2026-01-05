@@ -25,7 +25,8 @@
 		}
 	],
 	"require-dev": {
-		"phpcsstandards/phpcsutils": "^1.2"
+		"phpcsstandards/phpcsutils": "^1.2",
+		"league/commonmark": "^2.8"
 	},
 	"scripts": {
 		"wp-info:generate": "php tools/wp-info.php generate --main=./redirects.php --readme=./readme.txt --out=./wp-info.json",
@@ -36,7 +37,8 @@
 	},
 	"config": {
 		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"composer/installers": true
 		}
 	}
 }

@@ -1,0 +1,137 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Redirects 0.1.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/redirects\n"
+"Last-Translator: Vitor Carvalho <lightningspirit@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-01-05T00:13:30+00:00\n"
+"PO-Revision-Date: 2026-01-05 00:27+0000\n"
+"Language: pt_BR\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: redirects\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Plugin Name of the plugin
+#: redirects.php
+#: includes/admin-hooks.php:71
+#: includes/admin-hooks.php:72
+#: includes/admin-hooks.php:140
+msgid "Redirects"
+msgstr "Redirecionamentos"
+
+#. Description of the plugin
+#: redirects.php
+msgid "Lightweight redirect manager (301 / 302)"
+msgstr "Gerenciador leve de redirecionamentos (301 / 302)"
+
+#. Author of the plugin
+#: redirects.php
+msgid "lightningspirit"
+msgstr ""
+
+#. Author URI of the plugin
+#: redirects.php
+msgid "https://github.com/lightningspirit"
+msgstr ""
+
+#. translators: %1$s: plugin name, %2$s: conflicting plugin file
+#: includes/admin-hooks.php:46
+#, php-format
+msgid "%1$s was deactivated because it conflicts with %2$s. Only one redirect manager can be active at a time."
+msgstr "%1$s foi desativado porque entra em conflito com %2$s. Apenas um gerenciador de redirecionamentos pode estar ativo por vez."
+
+#: includes/admin-hooks.php:94
+msgid "301 (Moved Permanently)"
+msgstr "301 (Movido Permanentemente)"
+
+#: includes/admin-hooks.php:95
+msgid "302 (Found / Temporary)"
+msgstr "302 (Encontrado / Temporário)"
+
+#: includes/admin-hooks.php:96
+msgid "303 (See Other)"
+msgstr "303 (Ver Outro)"
+
+#: includes/admin-hooks.php:97
+msgid "307 (Temporary Redirect)"
+msgstr "307 (Redirecionamento Temporário)"
+
+#: includes/admin-hooks.php:98
+msgid "308 (Permanent Redirect)"
+msgstr "308 (Redirecionamento Permanente)"
+
+#: includes/admin-hooks.php:134
+msgid "Redirects saved."
+msgstr "Redirecionamentos salvos."
+
+#: includes/admin-hooks.php:143
+msgid "Wildcards:"
+msgstr "Curingas:"
+
+#: includes/admin-hooks.php:144
+msgid "Use"
+msgstr "Use"
+
+#: includes/admin-hooks.php:145
+msgid "in “From”. Captures map to"
+msgstr "em “De”. Capturas correspondem a"
+
+#: includes/admin-hooks.php:146
+msgid "… in “To”."
+msgstr "… em “Para”."
+
+#: includes/admin-hooks.php:147
+msgid "Example:"
+msgstr "Exemplo:"
+
+#: includes/admin-hooks.php:148
+msgid "Query string:"
+msgstr "String de consulta:"
+
+#: includes/admin-hooks.php:149
+msgid "Preserved automatically (e.g."
+msgstr "Preservado automaticamente (ex."
+
+#: includes/admin-hooks.php:150
+msgid ")."
+msgstr ")."
+
+#: includes/admin-hooks.php:158
+msgid "Add redirect"
+msgstr "Adicionar redirecionamento"
+
+#: includes/admin-hooks.php:166
+msgid "From (path, can include *)"
+msgstr "De (caminho, pode incluir *)"
+
+#: includes/admin-hooks.php:169
+msgid "To (URL, can include $1…)"
+msgstr "Para (URL, pode incluir $1…)"
+
+#: includes/admin-hooks.php:172
+msgid "Type"
+msgstr "Tipo"
+
+#: includes/admin-hooks.php:175
+msgid "Actions"
+msgstr "Ações"
+
+#: includes/admin-hooks.php:202
+#: includes/admin-hooks.php:249
+msgid "Remove"
+msgstr "Remover"
+
+#: includes/admin-hooks.php:212
+msgid "Save Redirects"
+msgstr "Salvar Redirecionamentos"
+
+#: includes/admin-hooks.php:304
+msgid "You must keep at least one row. Add a new row first, then remove this one."
+msgstr "Você deve manter pelo menos uma linha. Adicione uma nova linha primeiro, depois remova esta."
+
+#: includes/admin-hooks.php:310
+msgid "Remove this redirect?"
+msgstr "Remover este redirecionamento?"
