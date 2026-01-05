@@ -16,28 +16,30 @@ namespace WP_Redirects;
  */
 add_filter(
 	'plugin_update_remote_data_' . plugin_file(),
-	function ( $default_result = '' ) {
+	function ($default_result = '') {
 		$remote_data = wp_remote_get(
 			plugin_update_uri(),
-            [
-                'timeout' => 10,
-                'headers' => [
-                    'Accept' => 'application/json',
-                ],
-            ]
-        );
+			[
+				'timeout' => 10,
+				'headers' => [
+					'Accept' => 'application/json',
+				],
+			]
+		);
 
-		if ( is_wp_error( $remote_data )
-			|| 200 !== wp_remote_retrieve_response_code( $remote_data )
-			|| empty( wp_remote_retrieve_body( $remote_data ) ) ) {
+		if (
+			is_wp_error($remote_data)
+			|| 200 !== wp_remote_retrieve_response_code($remote_data)
+			|| empty(wp_remote_retrieve_body($remote_data))
+		) {
 			return $default_result;
 		}
 
-		$remote_data = json_decode( wp_remote_retrieve_body( $remote_data ) );
+		$remote_data = json_decode(wp_remote_retrieve_body($remote_data));
 
-		$remote_data->package  = $remote_data->download_link;
+		$remote_data->package = $remote_data->download_link;
 		$remote_data->sections = (array) $remote_data->sections;
-		$remote_data->banners  = (array) $remote_data->banners;
+		$remote_data->banners = (array) $remote_data->banners;
 
 		return $remote_data;
 	}
@@ -59,16 +61,16 @@ add_filter(
  */
 add_filter(
 	'plugins_api',
-	function ( $result, $action, $args ) {
-		if ( 'plugin_information' !== $action ) {
+	function ($result, $action, $args) {
+		if ('plugin_information' !== $action) {
 			return $result;
 		}
 
-		if ( plugin_slug() !== $args->slug ) {
+		if (plugin_slug() !== $args->slug) {
 			return $result;
 		}
 
-		$result       = apply_filters( 'plugin_update_remote_data_' . plugin_file(), $result );
+		$result = apply_filters('plugin_update_remote_data_' . plugin_file(), $result);
 		$result->slug = plugin_slug();
 
 		return $result;
@@ -85,28 +87,28 @@ add_filter(
  * @since 1.5.0
  */
 add_filter(
-	'update_plugins_' . wp_parse_url( sanitize_url( plugin_update_uri() ), PHP_URL_HOST ),
-	function ( $update, $plugin_data, $plugin_file ) {
-		if ( plugin_file() !== $plugin_file ) {
+	'update_plugins_' . wp_parse_url(sanitize_url(plugin_update_uri()), PHP_URL_HOST),
+	function ($update, $plugin_data, $plugin_file) {
+		if (plugin_file() !== $plugin_file) {
 			return $update;
 		}
 
-		$remote_data = apply_filters( 'plugin_update_remote_data_' . plugin_file(), $update );
+		$remote_data = apply_filters('plugin_update_remote_data_' . plugin_file(), $update);
 
-		if ( ! $remote_data ) {
+		if (!$remote_data) {
 			return $update;
 		}
 
-		if ( version_compare( get_bloginfo( 'version' ), $remote_data->requires, '<' ) ) {
+		if (version_compare(get_bloginfo('version'), $remote_data->requires, '<')) {
 			return $update;
 		}
 
-		if ( version_compare( PHP_VERSION, $remote_data->requires_php, '<' ) ) {
+		if (version_compare(PHP_VERSION, $remote_data->requires_php, '<')) {
 			return $update;
 		}
 
 		$remote_data->slug = plugin_slug();
-		$remote_data->url  = $plugin_data['PluginURI'];
+		$remote_data->url = $plugin_data['PluginURI'];
 
 		return (array) $remote_data;
 	},
@@ -123,7 +125,7 @@ add_filter(
  * @since 3.7.0 Added to WP_Upgrader::run().
  * @since 4.6.0 `$translations` was added as a possible argument to `$hook_extra`.
  *
- * @param WP_Upgrader $upgrader   WP_Upgrader instance. In other contexts this might be a
+ * @param \WP_Upgrader $upgrader   WP_Upgrader instance. In other contexts this might be a
  *                                Theme_Upgrader, Plugin_Upgrader, Core_Upgrade, or Language_Pack_Upgrader instance.
  * @param array       $hook_extra {
  *     Array of bulk item update data.
@@ -146,15 +148,16 @@ add_filter(
  */
 add_action(
 	'upgrader_process_complete',
-	function ( $upgrader_object, $options ) {
+	function ($upgrader_object, $options) {
 		$basename_file = plugin_file();
 
-		if ( isset( $options['action'] ) && 'update' === $options['action']
-			&& isset( $options['type'] ) && 'plugin' === $options['type']
+		if (
+			isset($options['action']) && 'update' === $options['action']
+			&& isset($options['type']) && 'plugin' === $options['type']
 		) {
-			if ( in_array( plugin_file(), $options['plugins'], true ) ) {
+			if (\in_array(plugin_file(), $options['plugins'], true)) {
 				// delete plugin data.
-				plugin_data( true );
+				plugin_data(true);
 			}
 		}
 	},

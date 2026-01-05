@@ -1,7 +1,8 @@
 <?php
 /**
  * Plugin Name: Redirects
- * Description: Lightweight redirect manager (301 / 302)
+ * Plugin URI: https://github.com/lightningspirit/wp-redirects
+ * Description: A lightweight redirect manager for WordPress with zero bloat. Manage 3xx redirects with wildcard support and WP-CLI.
  * Version: 0.1.2
  * Author: lightningspirit
  * Author URI: https://github.com/lightningspirit
@@ -10,6 +11,7 @@
  * Requires PHP: 7.4
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Update URI: https://github.com/lightningspirit/wp-redirects/raw/main/wp-info.json
  * Text Domain: redirects
  * Domain Path: /languages
  *
